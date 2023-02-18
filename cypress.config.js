@@ -2,10 +2,10 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: 'https://www.amazon.com',
-    defaultCommandTimeout: 8000,
+    baseUrl: 'https://www.amazon.com/',
     custumerServiceUrl: '/gp/help/customer/display.html/?nodeId=GENAFPTNLHV7ZACW',
-    setupNodeEvents(on, config) {
-    },
+    defaultCommandTimeout: 10000,
+    viewportWidth: 1600,
+    viewportHeight: 1000,
   },
 });

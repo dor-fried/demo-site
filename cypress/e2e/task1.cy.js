@@ -6,11 +6,9 @@ const mainPage = new MainPage()
 const custumerServicePage = new CustumerServicePage()
 
 before(() => {
-  cy.viewport(1600, 1000)
-  const baseURL = 'https://www.amazon.com/'
-  cy.visit(baseURL)
+  cy.visit('/')
   cy.url()
-    .should('eq', baseURL)
+    .should('eq', 'https://www.amazon.com/')
 })
 
 describe('Amazon test task', () => {
@@ -23,10 +21,15 @@ describe('Amazon test task', () => {
     mainPage.buttonMain()
       .contains('Customer Service')
       .click(({ force: true }))
-    mainPage.buttonWheresMyStuff
+    custumerServicePage.buttonLinkCustomerService()
+      .then((link) => { // Check response status 200 OK
+        cy.request(link.prop('href'))
+          .its('status')
+          .should('eq', 200)
+      })
     custumerServicePage.dialogHeading()
-      .should('have.text', 'Welcome to Amazon Customer Service')
-      .click() // Check the title 'welcome' in the page //
+      .should('have.text', 'Welcome to Amazon Customer Service') // Check the title 'Welcome' in the page
+      .click()
     custumerServicePage.buttonWheresMyStuff()
       .contains(`Where's my stuff`)
       .click()
@@ -35,7 +38,7 @@ describe('Amazon test task', () => {
       .should('be.visible')
     cy.visit(custumerServiceUrl)  // Navaigate to custumer page
     cy.url()
-      .should('include', custumerServiceUrl) // Assert the location of page
+      .should('include', 'nodeId=GENAFPTNLHV7ZACW') // Assert the location of page
     cy.get('h1')
       .should('have.text', ' Track Your Package') // Assert the text title
   })

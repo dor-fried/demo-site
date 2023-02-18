@@ -1,7 +1,8 @@
-import MainPage from '../support/mainPage'
+import MainPage from '../support/page-models/mainPage'
 
 // Initiating the required PageModels...
 const mainPage = new MainPage()
+
 
 Cypress.Commands.add('addItems', (name) => {
     mainPage.textinputSearch()
@@ -14,7 +15,8 @@ Cypress.Commands.add('addItems', (name) => {
         .click()
     mainPage.quantity2()
         .click()
-    mainPage.buttonAddToCart().click()
+    mainPage.buttonAddToCart()
+        .click()
     mainPage.confirmationMessageRightSideBar()
         .should('have.text', 'Added to Cart')
 })
