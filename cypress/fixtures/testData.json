@@ -1,0 +1,10 @@
+{
+  "firstName": "Oliver",
+  "lastName": "Johnson",
+  "address": "Sokolov",
+  "streetAddress": "Sokolov 10",
+  "city": "Tel aviv",
+  "email": "1@1.com",
+  "invalidEmail": "#@%^%@",
+  "mobileNumber": "0547645040"
+}

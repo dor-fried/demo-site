@@ -1,81 +1,34 @@
+require('cypress-xpath');
+
 class MainPage {
 
     //BUTTONS
-    buttonListOfLinks() {
-        return cy.get('#nav-xshop');
+    historyButton() {
+        return cy.xpath('//div[@class="btn-cymulate empty"]')
     }
-    buttonLinkTodaysDeals() {
-        return cy.get('[href="/gp/goldbox?ref_=nav_cs_gb"]')
+    firstRow() {
+        return cy.get('[data-tip="https://ekslabs.cymulatedev.com"]')
     }
-    buttonLinkCustomerService() {
-        return cy.get('[href="/gp/help/customer/display.html?nodeId=508510&ref_=nav_cs_customerservice"]')
+    urlName() {
+        return cy.xpath('//div[@class="report-summary-data"]')
     }
-    buttonMain() {
-        return cy.get('#nav-xshop')
+    statusCompleted() {
+        return cy.get('[data-tip="Assessment completed successfully"]')
     }
-    buttonCustumerService() {
-        return cy.get('.hmenu-visible > :nth-child(26) > .hmenu-item')
+    overallScore() {
+        return cy.xpath('//span[@class="pieChartInfoText"]')
     }
-    buttonWheresMyStuff() {
-        return cy.get('ul > li')
+    generateReportButton() {
+        return cy.xpath('//span[text()="Generate Report"]')
     }
-    buttonTrackYourPackage() {
-        return cy.get('.active > :nth-child(1) > .fs-match-card')
+    csvButton() {
+        return cy.xpath('//*[text()="CSV"]')
     }
-    buttonSubmitSearch() {
-        return cy.get('#nav-search-submit-button')
+    downloadManager() {
+        return cy.get('[test-id="topbar-dropdown-downloads"]')
     }
-    buttonSelectItem() {
-        return cy.get('[alt="Bostitch Personal Electric Pencil Sharpener, Powerful Stall-Free Motor, High Capacity Shavings Tray, Blue (EPS4-BLUE)"]').first()
-    }
-    buttonAddToCart() {
-        return cy.get('#add-to-cart-button');
-    }
-    buttonYellowGreyBlueOption() {
-        return cy.get('[alt="Yellow, Grey, Blue"]')
-    }
-    buttonGoToCart() {
-        return cy.get('#sw-gtc')
-    }
-    tabIndexSelectQtyRightPanel() {
-        return cy.get('#a-autoid-0-announce')
-    }
-    quantity2() {
-        return cy.get('#quantity_1')
-    }
-    tabIndexSelectQty() {
-        return cy.get('#a-autoid-2-announce')
-    }
-    quantity5() {
-        return cy.get('#quantity_5')
-    }
-    buttonCart() {
-        return cy.get('#nav-cart')
-    }
-    buttonDeleteItem() {
-        return cy.get('[value="Delete"]')
-    }
-
-    //TEXT INPUTS
-    textinputSearch() {
-        return cy.get('#twotabsearchtextbox')
-    }
-
-    //READ ONLY VALUE
-    confirmationMessageRightSideBar() {
-        return cy.get('#attachDisplayAddBaseAlert');
-    }
-    confirmationMessageLeftSideBar() {
-        return cy.get('#NATC_SMART_WAGON_CONF_MSG_SUCCESS')
-    }
-    readonlyvalueMessageFreeShipping() {
-        return cy.get('.a-alert-content')
-    }
-    messageNotFreeShipping() {
-        return cy.get('#sw-threshold-message')
-    }
-    confirmationMessageCartIsEmpty() {
-        return cy.get('h1')
+    downloadButton() {
+        return cy.xpath('//*[text()="Download"]')
     }
 }
 
